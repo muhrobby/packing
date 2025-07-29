@@ -14,9 +14,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
-Route::get('/users',[UserController::class, 'index']);
-Route::post('/user/create',[UserController::class, 'store']);
-Route::get('/user/create',[UserController::class, 'create']);
+Route::get('/users',[UserController::class, 'index'])->name('user.index');
+Route::get('/user/create',[UserController::class, 'create'])->name('user.create');
+Route::post('/user/store',[UserController::class, 'store'])->name('user.store');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

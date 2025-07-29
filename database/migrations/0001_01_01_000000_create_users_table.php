@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('nik',7)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('store_code',4);
+            $table->foreign('store_code')->references('store_code')->on('stores')->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
